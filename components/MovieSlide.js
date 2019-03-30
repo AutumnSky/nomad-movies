@@ -70,7 +70,21 @@ const MovieSlide = ({ posterPhoto, backgroundPhoto, title, voteAvg, overview }) 
           </VoteContainer>
         ) : null}
         {overview ? <Overview>{overview.length > 117 ? `${overview.substring(0, 120)}...` : overview}</Overview> : null}
-        <BtnContainer>
+        <BtnContainer
+          onPress={() =>
+            navigation.navigate({
+              routeName: 'Detail',
+              params: {
+                isMovie: true,
+                id,
+                posterPhoto,
+                backgroundPhoto,
+                title,
+                voteAvg,
+                overview
+              }
+            })}
+        >
           <BtnText>View details</BtnText>
         </BtnContainer>
       </Column>
